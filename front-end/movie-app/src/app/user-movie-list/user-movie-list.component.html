@@ -1,0 +1,19 @@
+<div class="list-container">
+  <h2>User Movies</h2>
+  <table class="movie-table">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let movie of userMovies" (click)="viewMovieDetails(movie.id)">
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.year }}</td>
+      <td>{{ movie.type }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

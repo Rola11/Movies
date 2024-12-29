@@ -1,0 +1,25 @@
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search movies by title">
+  <button (click)="onSearch()">Search</button>
+</div>
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+<table class="movie-table" *ngIf="movies.length > 0">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Type</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let movie of movies">
+    <td>{{ movie.Title }}</td>
+    <td>{{ movie.Year }}</td>
+    <td>{{ movie.Type }}</td>
+    <td>
+      <button (click)="addMovie(movie)" [disabled]="addingMovie">Add</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

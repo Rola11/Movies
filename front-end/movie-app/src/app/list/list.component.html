@@ -1,0 +1,23 @@
+<div class="list-container">
+  <h2>My Movies</h2>
+  <table class="movie-table">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let movie of localMovies">
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.year }}</td>
+      <td>{{ movie.type }}</td>
+      <td>
+        <button (click)="deleteMovie(movie.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,26 +1,30 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
+import {LoginComponent} from './login/login.component';
 
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-
-import { AuthGuard } from './auth.guard';
+import {AuthGuard} from './auth.guard';
+import {SearchComponent} from "./search/search.component";
+import {ListComponent} from "./list/list.component";
+import {UserMovieListComponent} from "./user-movie-list/user-movie-list.component";
+import { FilmDetailsComponent } from './film-details/film-details.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard], data: { role: 'ADMIN' } },
-  { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuard], data: { role: 'USER' } },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'user-movies', component: UserMovieListComponent },
+  { path: 'movie-details/:id', component: FilmDetailsComponent },
+  {path: 'search', component: SearchComponent, canActivate: [AuthGuard], data: {role: 'ADMIN'}},
+  {path: 'list', component: ListComponent},
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
 
 
 

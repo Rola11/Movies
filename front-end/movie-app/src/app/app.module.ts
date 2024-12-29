@@ -1,20 +1,26 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import {FormsModule} from "@angular/forms";
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms'; // Import FormsModule
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {LoginComponent} from './login/login.component';
+import {AuthInterceptor} from "./auth.interceptor";
+import {HeaderComponent} from './header-component/header.component';
+import {SearchComponent} from './search/search.component';
+import {ListComponent} from './list/list.component';
+import { UserMovieListComponent } from './user-movie-list/user-movie-list.component';
+import { FilmDetailsComponent } from './film-details/film-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminDashboardComponent,
-    UserDashboardComponent
+    HeaderComponent,
+    SearchComponent,
+    ListComponent,
+    UserMovieListComponent,
+    FilmDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,8 +28,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-
+export class AppModule {
+}

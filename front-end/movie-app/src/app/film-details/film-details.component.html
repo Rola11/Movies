@@ -1,0 +1,7 @@
+<div class="film-details-container" *ngIf="movie">
+  <h2>{{ movie.title }}</h2>
+  <p><strong>Year:</strong> {{ movie.year }}</p>
+  <p><strong>Type:</strong> {{ movie.type }}</p>
+  <p><strong>Description:</strong> {{ movie.description }}</p>
+  <button (click)="goBack()">Back to List</button>
+</div>
