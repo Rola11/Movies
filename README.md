@@ -17,7 +17,7 @@ Movies Dashboard is a web application that allows users to search for movies, vi
 ### Backend
 1. Clone the repository:
     ```bash
-    git clone https://github.com/Esraa-Abdelnaser/movies-dashboard.git
+    git clone https://github.com/Rola11/Movies.git
     cd movies-dashboard
     ```
 
