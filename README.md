@@ -38,7 +38,7 @@ Movies Dashboard is a web application that allows users to search for movies, vi
 ### Frontend
 1. Navigate to the frontend directory:
     ```bash
-    cd frontend
+    cd front-end
     ```
 
 2. Install dependencies:
@@ -62,7 +62,7 @@ The backend server will start at `http://localhost:8080`.
 ## Running the Frontend
 1. Navigate to the frontend directory:
     ```bash
-    cd frontend
+    cd front-end
     ```
 
 2. Start the Angular development server:
@@ -71,13 +71,6 @@ The backend server will start at `http://localhost:8080`.
     ```
 
 The frontend server will start at `http://localhost:4200`.
-
-## API Endpoints
-- `GET /user/movies` - Get all movies
-- `GET /user/movies/{id}` - Get movie details by ID
-- `POST /admin/movies` - Add a new movie (Admin only)
-- `PUT /admin/movies/{id}` - Update a movie (Admin only)
-- `DELETE /admin/movies/{id}` - Delete a movie (Admin only)
 
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
