@@ -51,14 +51,28 @@ public class SecurityConfig {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:4200");
+        config.setAllowCredentials(true); // Allows cookies/authentication
+        config.addAllowedOriginPattern("http://localhost:*"); // Allows all localhost ports
         config.addAllowedHeader("*"); // Allows all headers
         config.addAllowedHeader("Role"); // Explicitly allow the Role header
-        config.addAllowedMethod("*");
+        config.addAllowedMethod("*"); // Allows all HTTP methods (GET, POST, etc.)
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
+
+
+//    @Bean
+//    public CorsFilter corsFilter() {
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        CorsConfiguration config = new CorsConfiguration();
+//        config.setAllowCredentials(true);
+//        config.addAllowedOrigin("http://localhost:4201");
+//        config.addAllowedHeader("*"); // Allows all headers
+//        config.addAllowedHeader("Role"); // Explicitly allow the Role header
+//        config.addAllowedMethod("*");
+//        source.registerCorsConfiguration("/**", config);
+//        return new CorsFilter(source);
+//    }
 
 
     @Bean
